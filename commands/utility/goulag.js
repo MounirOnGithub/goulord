@@ -39,7 +39,7 @@ module.exports = {
                 try {
                     // Revenir à son canal d'origine ou à un autre traitement
                     await member.roles.set(originalRoles);
-                    await member.voice.setChannel(originalChannelId ? originalChannelId : null);
+                    await member.voice.setChannel(originalChannelId && member.voice.channel ? originalChannelId : null);
                     await interaction.followUp(`${user.username} est sorti du goulag.`);
                 } catch (error) {
                     interaction.reply(`Un problème est survenu pour faire revenir ${user.username}`)
